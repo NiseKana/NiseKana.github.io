@@ -45,7 +45,7 @@
 
 /*�����ҳ��*/
 #aside-content > .card-widget {
-    background: rgba(255, 255, 255, .5);
+    background: rgba(255, 255, 255, .6);
 }
 
  /* ������ϢFollow me��ť */
@@ -53,9 +53,9 @@
     background-color: #3eb8be;
     border-radius: 8px;
  }
-
+/* Ŀ¼top */
 #aside-content > .sticky_layout > .card-widget {
-    background: rgba(255, 255, 255, .5);
+    background: rgba(255, 255, 255, .6);
 }
 
 /*����ҳ��*/
@@ -100,14 +100,14 @@
 #sidebar #sidebar-menus.open {
     background: rgba(246, 239, 246, 0.75) !important;
     backdrop-filter: blur(3px);
-    border-radius: 0px 0 0 6px;
+    border-radius: 0px 0 0 0px;
 }
 
 [data-theme=dark]
 #sidebar #sidebar-menus.open {
     background: rgba(252, 224, 252, 0.11) !important;
     backdrop-filter: blur(3px);
-    border-radius: 0px 0 0 6px;
+    border-radius: 0px 0 0 0px;
 }
 /*��߿��ư�ť*/
 #rightside > #rightside-config-show > #rightside_config,
