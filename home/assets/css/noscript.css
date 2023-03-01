@@ -1,4 +1,4 @@
-/*
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">/*
 此源码是基于 Dimension 的二次修改
 Github：https://github.com/nianbroken/Personal_Sakura_Guide_Page
 Gitee：https://gitee.com/nianbroken/Personal_Sakura_Guide_Page
