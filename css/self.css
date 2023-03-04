@@ -32,18 +32,18 @@
             color: var(--font-color);
         }
 /*************************************/
-/* ��ҳ��������ҳ�汳�� */
+/* ��ҳ��������ҳ�汳�� *//*
 #aside_content .card-widget,
 #recent-posts > .recent-post-item,
 .layout_page > div:first-child:not(.recent-posts),
 .layout_post > #page,
 .layout_post > #post,
 .read-mode .layout_post > #post {
-    /* ���´���͸����Ϊ0.5 */
+    /* ���´���͸����Ϊ0.5 *//*
     background: rgba(255, 255, 255, .5);
 }
 
-/*�����ҳ��*/
+/*�����ҳ��*//*
 #aside-content > .card-widget {
     background: rgba(255, 255, 255, .6);
 }
@@ -53,22 +53,22 @@
     background-color: #3eb8be;
     border-radius: 8px;
  }
-/* Ŀ¼top */
+/* Ŀ¼top *//*
 #aside-content > .sticky_layout > .card-widget {
     background: rgba(255, 255, 255, .6);
 }
 
-/*����ҳ��*/
+/*����ҳ��*//*
 .layout > #post {
     background: rgba(255, 255, 255, .5);
 }
 
-/*����ҳ��*/
+/*����ҳ��*//*
 .layout > #page {
     background: rgba(255, 255, 255, .5);
 }
 
-/*ʱ����ҳ��*/
+/*ʱ����ҳ��*//*
 .layout > #archive {
     background: rgba(255, 255, 255, .5);
 }
@@ -147,4 +147,13 @@
         backdrop-filter: blur(3px);
         border-radius: 6px 6px;
     }
+/*************************************/
+/*���ָ��*/
+body {
+    cursor: url(/img/cursor/default.ani), auto;
+}
+
+a:hover {
+    cursor: url(/img/cursor/pointer.ani), auto;
+}
 /*************************************/
