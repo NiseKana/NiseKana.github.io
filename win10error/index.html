@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Win10-Error</title>
+    <link rel="shortcut icon" href="https://nisekana.github.io/img/logo/favicon.png" />
+    <link rel="stylesheet" href="./sty.css">
+    <script src="./scr.js"></script>
+</head>
+<body>
+    <div id="settings">
+        表情<input type="text" id="emjioInfo" title="最大的门面当然可以设置啦"><br>
+        链接<input type="text" id="urlInfo" title="'请访问'后面的链接"><br>
+        终止代码<input type="text" id="errorCodeInfo" title="'终止代码：'后面的字符串"><br>
+        失败操作<input type="text" id="failedOperationInfo" title="'失败操作：'后面的字符串"><br>
+        二维码链接<input type="text" id="qrCodeInfo" title="二维码图片的链接地址"><br>
+        <div>
+            <input type="button" value="刷新" title="重新加载进度，点击后卡顿一秒是正常现象，因为是一秒刷新一次" onclick="loading()">
+            <input type="button" value="取消" title="关闭窗口  不刷新" onclick="display()">
+            <input type="button" value="确认" title="关闭窗口  刷新" onclick="setInfo();display();">
+            <input type="button" value="应用" title="不关闭窗口  刷新" onclick="setInfo();">
+            <a href="https://gitee.com/di-didi/win10error/tree/master/v1" title="有兴趣可以自己去维护修改，我自己太懒了"><input type="button" value="源码"></a>
+        </div>
+    </div><br>
+    <div id="main" onclick="display()">
+        <div id="emjio">:(</div>
+        <div id="第一句">你的电脑遇到问题，需要重新启动。
+            <br>我们只收集某些错误信息，然后你可以重新启动。
+            <br><br><font id="loadingSchedule">10</font>% 完成
+        </div>
+        <div id="qrCode"></div>
+        <div id="二维码之后">
+            <div id="有关此问题的">有关此问题的详细信息和可能的解决方法，请访问<a href="https://www.windows.com/stopcode"><font id="url">https://www.windows.com/stopcode</font></a></div>
+            <div>如果致电支持人员，请向他们提供以下信息：</div>
+            <div>终止代码：<font id="errorCode">PAGE_FAULT_IN_NONPAGED_AREA</font></div>
+            <div>失败的操作：<font id="failedOperation">ZhiFtywk_sys</font></div>
+        </div>
+    </div>
+</body>
+</html>

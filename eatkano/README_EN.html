@@ -1,0 +1,84 @@
+<p align="center">
+  <a href="https://xingye.me/game/eatkano"><img src="https://github.com/arcxingye/EatKano/blob/main/static/image/ClickBefore.png?raw=true" width="100" height="100" alt="EatKano"></a>
+</p>
+<div align="center">
+<h1 id="eatkano"><a class="markdownIt-Anchor" href="#eatkano"></a> EatKano</h1>
+<p><em>🦌 Web Game 🥛</em></p>
+</div>
+<h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<p>A web game: EatKano</p>
+<p><a href="https://twitter.com/kano_2525">Kano’s Twitter</a><br />
+|<br />
+<a href="https://xingye.me/game/eatkano/index.php">Online Version</a><br />
+|<br />
+<a href="https://arcxingye.github.io/EatKano/index.html">Github Pages</a></p>
+<h2 id="features"><a class="markdownIt-Anchor" href="#features"></a> Features</h2>
+<p>A simple ranking list(day/week/month) is provided.</p>
+<p>You can delete all the sql/php files if you don’t need them.</p>
+<h2 id="requirements"><a class="markdownIt-Anchor" href="#requirements"></a> Requirements</h2>
+<ul>
+<li>MySQL 5+</li>
+<li>PHP 5+</li>
+</ul>
+<h2 id="usage"><a class="markdownIt-Anchor" href="#usage"></a> Usage</h2>
+<p>Note: if you just want to play it, go to <a href="https://xingye.me/game/eatkano/index.php">online version</a>. Here is how to create your own version.</p>
+<h3 id="github-pages"><a class="markdownIt-Anchor" href="#github-pages"></a> Github Pages</h3>
+<p>You can run it on Github Pages if you don’t need the ranking list.</p>
+<p>Follow these steps to change the text displayed to what you want.</p>
+<ol>
+<li>
+<p><strong>Fork this repository. DON’T CHANGE DIRECTLY IN THIS PROJECT.</strong></p>
+</li>
+<li>
+<p><strong>Open the repo you forked.</strong> Go to <code>static/i18n/en.json</code> and find these texts below</p>
+<pre class="highlight"><code class="json">{
+  <span class="hljs-attr">"game-title"</span>: <span class="hljs-string">"Eat Kano"</span>,
+  <span class="hljs-attr">"game-intro1"</span>: <span class="hljs-string">"Start from the bottom"</span>,
+  <span class="hljs-attr">"game-intro2"</span>: <span class="hljs-string">"Can you tap 150 times?"</span>,
+  <span class="hljs-attr">"text-level-1"</span>: <span class="hljs-string">"Try again?"</span>,
+  <span class="hljs-attr">"text-level-2"</span>: <span class="hljs-string">"Not bad"</span>,
+  <span class="hljs-attr">"text-level-3"</span>: <span class="hljs-string">"Nice"</span>,
+  <span class="hljs-attr">"text-level-4"</span>: <span class="hljs-string">"Awesome"</span>,
+  <span class="hljs-attr">"text-level-5"</span>: <span class="hljs-string">"R U kidding?"</span>
+}
+</code></pre>
+<p>You can change the text on the right side. <strong>Note that don’t remove quotes(i.e. <code>&quot;</code>)</strong></p>
+</li>
+<li>
+<p>Go to directory <code>static/image</code>. The image shown before clicking is <code>ClickBefore.png</code>, and after is <code>ClickAfter.png</code>.</p>
+<p><strong>The file type must be <code>png</code></strong></p>
+</li>
+<li>
+<p>Go to directory <code>static/music</code>. The sound played when tapping is <code>tap.mp3</code>, when ending without errors is <code>end.mp3</code>, while ending with errors is <code>err.mp3</code>.</p>
+<p><strong>The file type must be <code>mp3</code></strong></p>
+</li>
+<li>
+<p>After changing all resources to your own, go to repository <code>Settings</code> -&gt; <code>Pages</code> -&gt; <code>Source</code>, choose <code>main</code> branch and click <code>Save</code>.</p>
+</li>
+</ol>
+<h3 id="deploying-to-server"><a class="markdownIt-Anchor" href="#deploying-to-server"></a> Deploying to Server</h3>
+<p>Follow these few steps to configure the database for ranking list on your server.</p>
+<ol>
+<li>
+<p>Create your own database and execute the script provided(e.g. use <code>kano</code> as database name).</p>
+<pre class="highlight"><code class="sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> kano <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span>=utf8;
+<span class="hljs-keyword">USE</span> kano;
+SOURCE kano.sql;
+</code></pre>
+</li>
+<li>
+<p>Change the code in <code>conn.php</code>, which contains your database info, and its content is here.</p>
+<pre class="highlight"><code class="php"><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-comment">// Change this to your own configuration</span>
+$link = <span class="hljs-keyword">new</span> mysqli(<span class="hljs-string">'localhost'</span>,<span class="hljs-string">'NAME'</span>,<span class="hljs-string">'PASSWORD'</span>,<span class="hljs-string">'kano'</span>);
+mysqli_set_charset($link, <span class="hljs-string">'utf8'</span>);
+<span class="hljs-keyword">if</span> ($link-&gt;connect_error) {
+    <span class="hljs-keyword">die</span>(<span class="hljs-string">"Failed to connect: "</span> . $conn-&gt;connect_error);
+}
+$ranking = <span class="hljs-string">"kano_rank"</span>;
+</code></pre>
+</li>
+</ol>
+<h2 id="others"><a class="markdownIt-Anchor" href="#others"></a> Others</h2>
+<p>Please star us~</p>
+<p>Welcome to pull request!</p>
