@@ -150,10 +150,10 @@
 /*************************************/
 /*���ָ��*/
 body {
-    cursor: url(/img/cursor/default.ani), auto;
+    cursor: url(/img/cursor/default.cur), auto;
 }
 
 a:hover {
-    cursor: url(/img/cursor/pointer.ani), auto;
+    cursor: url(/img/cursor/pointer.cur), auto;
 }
 /*************************************/

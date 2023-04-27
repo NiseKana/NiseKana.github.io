@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>【二改】桌面天气小电视</title>
+      <link href="/posts/45861.html"/>
+      <url>/posts/45861.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2><p>修改了一下B站大佬<a href="https://space.bilibili.com/361778729?share_medium=android&amp;share_source=copy_link&amp;bbid=XX34DD537771BC0984429C5030BD7491599AD&amp;ts=1682573268071">@_铁甲依旧在_</a>的作品<a href="https://www.bilibili.com/video/av889642696">《ESP8266+OLED桌面气象小电视》</a>。删除了哔哩哔哩视频播放量代码，解决了视频播放量显示-1的问题§(<em>￣▽￣</em>)§，并修改了字体大小和屏幕线序使连接更方便。</p><h2 id="主要功能"><a class="markdownIt-Anchor" href="#主要功能"></a> 主要功能</h2><p>智能配网、网络授时、获取知心天气信息（当前天气、预报天气）、获取b站up主信息（粉丝数）</p><h2 id="代码修改"><a class="markdownIt-Anchor" href="#代码修改"></a> 代码修改</h2><h3 id="final_projectino文件中"><a class="markdownIt-Anchor" href="#final_projectino文件中"></a> /final_project.ino文件中</h3><p>26行<code>#include &lt;SSD1306Wire.h&gt;</code>0.96存屏幕，<code>#include &quot;SH1106Wire.h&quot;</code>1.3寸屏幕。</p><p>36行<code>String reqUserKey = &quot;*****&quot;;</code>将*****替换成<a href="%5Bhttps://www.seniverse.com/">知心天气</a>私匙。</p><p>37行<code>String reqLocation = &quot;xian&quot;;</code>替换成城市拼音。</p><p>46和47行<code>String mid = &quot;********&quot;;</code> <code>UpInfo upInfo(&quot;********&quot;);</code>将*****改成<a href="https://bilibili.com/">哔哩哔哩</a>的UID。</p><h2 id="硬件连接"><a class="markdownIt-Anchor" href="#硬件连接"></a> 硬件连接</h2><h3 id="esp8266和屏幕"><a class="markdownIt-Anchor" href="#esp8266和屏幕"></a> ESP8266和屏幕</h3><table><thead><tr><th style="text-align:center">ESP8266</th><th style="text-align:center">屏幕</th></tr></thead><tbody><tr><td style="text-align:center">GND</td><td style="text-align:center">GND</td></tr><tr><td style="text-align:center">3V3</td><td style="text-align:center">VCC</td></tr><tr><td style="text-align:center">GPIO2（D4）</td><td style="text-align:center">SCL</td></tr><tr><td style="text-align:center">GPIO0（D3）</td><td style="text-align:center">SAD</td></tr></tbody></table><h3 id="按键"><a class="markdownIt-Anchor" href="#按键"></a> 按键</h3><table><thead><tr><th style="text-align:center">GPIO5（D1）</th><th style="text-align:center">GND</th></tr></thead><tbody></tbody></table><h2 id="程序下载"><a class="markdownIt-Anchor" href="#程序下载"></a> 程序下载</h2><p>二改链接：<a href="https://iqn.lanzoub.com/iaxma0u3rqhe">https://iqn.lanzoub.com/iaxma0u3rqhe</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程·DIY </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Esp8266 </tag>
+            
+            <tag> Arduino </tag>
+            
+            <tag> 教程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>大臣、好き</title>
       <link href="/posts/3142.html"/>
       <url>/posts/3142.html</url>
