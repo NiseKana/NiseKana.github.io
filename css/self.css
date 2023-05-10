@@ -150,10 +150,11 @@
 /*************************************/
 /*���ָ��*/
 body {
-    cursor: url(/img/cursor/default.cur), auto;
+    cursor: url(/img/cursor/default.cur), default;
 }
 
-a:hover {
-    cursor: url(/img/cursor/pointer.cur), auto;
+a,
+img {
+    cursor: url(/img/cursor/pointer.cur), default;
 }
 /*************************************/

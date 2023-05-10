@@ -8,7 +8,7 @@
       <link href="/posts/45861.html"/>
       <url>/posts/45861.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2><p>修改了一下B站大佬<a href="https://space.bilibili.com/361778729?share_medium=android&amp;share_source=copy_link&amp;bbid=XX34DD537771BC0984429C5030BD7491599AD&amp;ts=1682573268071">@_铁甲依旧在_</a>的作品<a href="https://www.bilibili.com/video/av889642696">《ESP8266+OLED桌面气象小电视》</a>。删除了哔哩哔哩视频播放量代码，解决了视频播放量显示-1的问题§(<em>￣▽￣</em>)§，并修改了字体大小和屏幕线序使连接更方便。</p><h2 id="主要功能"><a class="markdownIt-Anchor" href="#主要功能"></a> 主要功能</h2><p>智能配网、网络授时、获取知心天气信息（当前天气、预报天气）、获取b站up主信息（粉丝数）</p><h2 id="代码修改"><a class="markdownIt-Anchor" href="#代码修改"></a> 代码修改</h2><h3 id="final_projectino文件中"><a class="markdownIt-Anchor" href="#final_projectino文件中"></a> /final_project.ino文件中</h3><p>26行<code>#include &lt;SSD1306Wire.h&gt;</code>0.96存屏幕，<code>#include &quot;SH1106Wire.h&quot;</code>1.3寸屏幕。</p><p>36行<code>String reqUserKey = &quot;*****&quot;;</code>将*****替换成<a href="%5Bhttps://www.seniverse.com/">知心天气</a>私匙。</p><p>37行<code>String reqLocation = &quot;xian&quot;;</code>替换成城市拼音。</p><p>46和47行<code>String mid = &quot;********&quot;;</code> <code>UpInfo upInfo(&quot;********&quot;);</code>将*****改成<a href="https://bilibili.com/">哔哩哔哩</a>的UID。</p><h2 id="硬件连接"><a class="markdownIt-Anchor" href="#硬件连接"></a> 硬件连接</h2><h3 id="esp8266和屏幕"><a class="markdownIt-Anchor" href="#esp8266和屏幕"></a> ESP8266和屏幕</h3><table><thead><tr><th style="text-align:center">ESP8266</th><th style="text-align:center">屏幕</th></tr></thead><tbody><tr><td style="text-align:center">GND</td><td style="text-align:center">GND</td></tr><tr><td style="text-align:center">3V3</td><td style="text-align:center">VCC</td></tr><tr><td style="text-align:center">GPIO2（D4）</td><td style="text-align:center">SCL</td></tr><tr><td style="text-align:center">GPIO0（D3）</td><td style="text-align:center">SAD</td></tr></tbody></table><h3 id="按键"><a class="markdownIt-Anchor" href="#按键"></a> 按键</h3><table><thead><tr><th style="text-align:center">GPIO5（D1）</th><th style="text-align:center">GND</th></tr></thead><tbody></tbody></table><h2 id="程序下载"><a class="markdownIt-Anchor" href="#程序下载"></a> 程序下载</h2><p>二改链接：<a href="https://iqn.lanzoub.com/iaxma0u3rqhe">https://iqn.lanzoub.com/iaxma0u3rqhe</a></p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2><p>修改了一下B站大佬<a href="https://space.bilibili.com/361778729?share_medium=android&amp;share_source=copy_link&amp;bbid=XX34DD537771BC0984429C5030BD7491599AD&amp;ts=1682573268071">@_铁甲依旧在_</a>的作品<a href="https://www.bilibili.com/video/av889642696">《ESP8266+OLED桌面气象小电视》</a>。删除了哔哩哔哩视频播放量代码，解决了视频播放量显示-1的问题§(<em>￣▽￣</em>)§，并修改了字体大小和屏幕线序使连接更方便。</p><h2 id="主要功能"><a class="markdownIt-Anchor" href="#主要功能"></a> 主要功能</h2><p>智能配网、网络授时、获取知心天气信息（当前天气、预报天气）、获取b站up主信息（粉丝数）</p><h2 id="代码修改"><a class="markdownIt-Anchor" href="#代码修改"></a> 代码修改</h2><h3 id="final_projectino文件中"><a class="markdownIt-Anchor" href="#final_projectino文件中"></a> /final_project.ino文件中</h3><p>26行<code>#include &lt;SSD1306Wire.h&gt;</code>0.96存屏幕，<code>#include &quot;SH1106Wire.h&quot;</code>1.3寸屏幕。</p><p>36行<code>String reqUserKey = &quot;*****&quot;;</code>将*****替换成<a href="https://www.seniverse.com">知心天气</a>私匙。</p><p>37行<code>String reqLocation = &quot;xian&quot;;</code>替换成城市拼音。</p><p>46和47行<code>String mid = &quot;********&quot;;</code> <code>UpInfo upInfo(&quot;********&quot;);</code>将*****改成<a href="https://bilibili.com/">哔哩哔哩</a>的UID。</p><h2 id="硬件连接"><a class="markdownIt-Anchor" href="#硬件连接"></a> 硬件连接</h2><h3 id="esp8266和屏幕"><a class="markdownIt-Anchor" href="#esp8266和屏幕"></a> ESP8266和屏幕</h3><table><thead><tr><th style="text-align:center">ESP8266</th><th style="text-align:center">屏幕</th></tr></thead><tbody><tr><td style="text-align:center">GND</td><td style="text-align:center">GND</td></tr><tr><td style="text-align:center">3V3</td><td style="text-align:center">VCC</td></tr><tr><td style="text-align:center">GPIO2（D4）</td><td style="text-align:center">SCL</td></tr><tr><td style="text-align:center">GPIO0（D3）</td><td style="text-align:center">SAD</td></tr></tbody></table><h3 id="按键"><a class="markdownIt-Anchor" href="#按键"></a> 按键</h3><table><thead><tr><th style="text-align:center">GPIO5（D1）</th><th style="text-align:center">GND</th></tr></thead><tbody></tbody></table><h2 id="程序下载"><a class="markdownIt-Anchor" href="#程序下载"></a> 程序下载</h2><p>二改链接：<a href="https://iqn.lanzoub.com/iaxma0u3rqhe">https://iqn.lanzoub.com/iaxma0u3rqhe</a></p>]]></content>
       
       
       <categories>
@@ -20,11 +20,36 @@
       
         <tags>
             
+            <tag> 教程 </tag>
+            
             <tag> Esp8266 </tag>
             
             <tag> Arduino </tag>
             
-            <tag> 教程 </tag>
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>新Bing Ai体验</title>
+      <link href="/posts/54829.html"/>
+      <url>/posts/54829.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>上一周体验了朋友的Bing后看了看自己申请的邮箱一个月多迟迟没有消息，肯定是微软噶了ヽ（≧□≦）ノ。抱着再试一试的态度用新邮箱挂着美区的节点注册了一个新账号，结果刚注册就可以用。</p><p>因为我也没有Chat GPT的账号，只用过第三方的GPT。第三方的GPT（GPT中文）给我的感觉就是一个离线的百科资源库，无法实时更新，回答没有情感（比如让它扮演一个角色，回答的没有Bing有感情，人物动作语言描写不太丰盛），上下文联系有长度限制，所以不和Chat GPT做对比。</p><p><img src="/images/posts/23041601.png" alt="第三方GPT" /></p><p>微软把必应加入到了浏览器里，点击必应图标可以显示浏览页面的主要内容。体验下来的确方便了一点，但需要网页支持试了几个国内的网页都不行，而且提示也都是英文。。。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 开箱测评 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Bing </tag>
             
         </tags>
       
@@ -37,7 +62,7 @@
       <link href="/posts/3142.html"/>
       <url>/posts/3142.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>＃ダイジンといっいよ、大好きたよ~<br />没想到真的可以看见大臣呀！！！<br /><img src="/images/23032601.png" alt=" " /><br /><img src="/images/23032602.png" alt=" " /><br /><img src="/images/23032603.png" alt=" " /></p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>＃ダイジンといっいよ、大好きたよ~<br />没想到真的可以看见大臣呀！！！<br /><img src="/images/posts/23032601.png" alt=" " /><br /><img src="/images/posts/23032602.png" alt=" " /><br /><img src="/images/posts/23032603.png" alt=" " /></p>]]></content>
       
       
       <categories>
@@ -62,7 +87,7 @@
       <link href="/posts/53499.html"/>
       <url>/posts/53499.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>救命 awsl<br /><a href="https://www.coolapk.com/feed/44000662?shareKey=MzA5NWIwMjM1MmM3NjQwOTlmY2U~&amp;shareUid=3633462&amp;shareFrom=com.coolapk.market_10.5">查看链接</a><br />居然有人夸我温柔呜呜呜🥹<br /><img src="/images/23030901.png" alt="萌系黑客会遇到物理panic吗" /></p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>救命 awsl<br /><a href="https://www.coolapk.com/feed/44000662?shareKey=MzA5NWIwMjM1MmM3NjQwOTlmY2U~&amp;shareUid=3633462&amp;shareFrom=com.coolapk.market_10.5">查看链接</a><br />居然有人夸我温柔呜呜呜🥹<br /><img src="/images/posts/23030901.png" alt="萌系黑客会遇到物理panic吗" /></p>]]></content>
       
       
       <categories>
@@ -187,7 +212,7 @@
       <link href="/posts/32408.html"/>
       <url>/posts/32408.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>多邻国连胜365天了，就在这里偷偷记录一下吧ヾ(≧▽≦*)o（好耶ヽ(✿ﾟ▽ﾟ)ノ！<br /><img src="/images/23021401.png" alt="多邻国连胜365天" /></p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>多邻国连胜365天了，就在这里偷偷记录一下吧ヾ(≧▽≦*)o（好耶ヽ(✿ﾟ▽ﾟ)ノ！<br /><img src="/images/posts/23021401.png" alt="多邻国连胜365天" /></p>]]></content>
       
       
       <categories>
@@ -200,6 +225,35 @@
         <tags>
             
             <tag> 碎碎念 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>电视优化分享</title>
+      <link href="/posts/45214.html"/>
+      <url>/posts/45214.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面：</h1><p>这几天闲的没事干，准备看看电视§(<em>￣▽￣</em>)§，发现已经被广告占领╰（‵□′）╯，开机广告 首页弹窗广告 屏保广告 看视频前的的广告…。离谱的是看一个本地视频也有弹窗广告？？？，正好趁这时间吧电视优化一下。电视配置下如图，已经是非常的伊拉克了(ノへ￣、)，0.5+8G  双核1.6GHz的CPU   安卓4.4 720P屏幕  可以说营运商送的电视盒子都比这个配置高(＠_＠😉。</p><p><img src="/images/posts/23020402.jpg" alt="上古配置的电视¯(°_o)/¯" /></p><h1 id="优化思路"><a class="markdownIt-Anchor" href="#优化思路"></a> 优化思路：</h1><p>优化方向大致梳理一下：</p><ul><li><p>冻结/卸载无用APP，保持电视有足够的运行和存储空间。</p></li><li><p>换一个清爽一点的桌面，原来的桌面是瀑布流形式，基本上全是VIP推广，广告等。</p></li><li><p>替换/修改广告文件，可以去除开机广告等（root）。</p></li></ul><h1 id="开始优化"><a class="markdownIt-Anchor" href="#开始优化"></a> 开始优化：</h1><h2 id="冻结卸载应用软件"><a class="markdownIt-Anchor" href="#冻结卸载应用软件"></a> 冻结/卸载应用软件</h2><p>最先想到的就是wifiadb，不用修改系统就能冻结应用。在设置看了一圈没有找到版本号什么隐藏接口，于是安装 <a href="http://www.coolapk.com/apk/com.x7890.shortcutcreator">【创建快捷方式】</a> 找到设置的活动点击，成功进入&quot;设置&quot;。</p><p><img src="/images/posts/23020403.jpg" alt="电视的原生设置" /></p><p>快速点击版本号即可开启开发者设置。</p><p><img src="/images/posts/23020404.jpg" alt="原生设置的开发者选项" /></p><p>很遗憾，没有wifi adb，也对 这才安卓4.4。</p><p>既然不能adb就只能root了下载360root 安装 成功root!可用自带的冷藏室来冻结无用app。</p><p><img src="/images/posts/23020405.jpg" alt="360root" /></p><p>像一些自带的无用app、 bug 日志收集app、 广告app、 系统升级，这些东西全部冻结当然要根据实际情况自己决定。（冻结前请百度自己的电视型号，看看有没有优化教程，以免冻结系统进程卡开机）</p><p>这里推荐个冻结软件<a href="https://iqn.lanzoub.com/iiKm001qy7kj">FreezeYOU-冻住你</a>密码：cn08，支持安卓4~9.0，可用遥控器操作，要root!</p><p><img src="/images/posts/23020406.jpg" alt="FreezeYou" /></p><p>也可以用re管理器在：根目录/system/app路径直接删除app，最好先复制再删除以免出现不必要的麻烦。</p><p><img src="/images/posts/23020407.jpg" alt="在这个目录下/system/app" /></p><h2 id="换一个清爽一点的桌面"><a class="markdownIt-Anchor" href="#换一个清爽一点的桌面"></a> 换一个清爽一点的桌面</h2><p>一定要先安装新桌面再冻结原来的桌面，否则就会变大黑板，如果你的电视配置好我推荐当贝桌面4.0去广版。颜值高，还有高斯模糊。不好的话每次进出软件的时候桌面就会重新加载。</p><p><img src="/images/posts/23020408.jpg" alt="当贝桌面" /></p><p>由于这辣鸡电视设置没有单独的APP入口，是从主屏幕应用调相关的API接口来设置。导致其他启动器无法打开设置。所以要设置好相关内容后冻结桌面。</p><h2 id="替换修改广告文件"><a class="markdownIt-Anchor" href="#替换修改广告文件"></a> 替换/修改广告文件</h2><p>可以先百度&quot;电视名字+去广告&quot;看看例案，系统不一样方法就这里也不好讲。</p><p>想花里胡哨的还可以改开机动画，把开机广告替换成自己喜欢的图片视频，开机动画和手机一样都是在/system/media/bootanimation.zip里，由于系统不能自定义壁纸，随便就加了一些壁纸，没想到没鸟用，桌面还是原来样子。</p><p><img src="/images/posts/23020409.jpg" alt="换了些壁纸" /></p><p>改完一定要把360毒瘤删了用的时候再下回来。那家伙太占内存和CPU了，而且还把自己弄成系统应用。</p><p><img src="/images/posts/23020410.jpg" alt="占用97%的内存" /></p><p><img src="/images/posts/23020411.jpg" alt="后台一直运行着" /></p><h1 id="最后"><a class="markdownIt-Anchor" href="#最后"></a> 最后：</h1><p>最后还发现了一个好玩的——自带的<a href="https://iqn.lanzoub.com/iMV0n01t4xsb">投屏</a> 密码：asdf，没想到它是一个APP。提取出来安装在手机上也能完美运行，可以屏幕镜像，视频投屏，只有10m。</p><p><img src="/images/posts/23020412.jpg" alt="电视上的投屏软件" /></p><blockquote><p>文章首发链接：<a href="https://www.coolapk.com/feed/34415405?shareKey=M2FmNDUzNTcxNjk1NjQ1OTBkZTU~">上古电视优化分享 来自 NiseKana - 酷安 (coolapk.com)</a></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程·DIY </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 电视 </tag>
+            
+            <tag> Android </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
