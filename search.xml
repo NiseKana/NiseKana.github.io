@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>小米妙享NFC标签制作</title>
+      <link href="/posts/62827.html"/>
+      <url>/posts/62827.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1><p>小米平板6发布时也带来了新品—小米智能触控键盘。其中键盘支持NFC一碰秒传，无需配对，快速传文件、屏幕扭转等（官方介绍），除过这个键盘还有Redmi Book14 2023支持就没有其他的了¯\ (°_o)/¯。</p><p><img src="/images/posts/23052301.png" alt="官方介绍" /></p><p>当然办法总比困难多，按照酷安大佬@星逝之殇的<a href="https://www.coolapk.com/feed/45816956?shareKey=MDUzYmMxZmY3NTAxNjQ1ZTZjNDI~">教程</a>已经在第三方NFC标签上可以使用。</p><h1 id="教程开始"><a class="markdownIt-Anchor" href="#教程开始"></a> 教程开始</h1><ol><li><p>首先：要有NFC标签纸，213、215、216、小米碰碰贴都可以哦，213内存刚好够用，建议买215、216的可玩性更大，以后可以做音乐标签等。</p></li><li><p>第一步：按win+r打开运行，输入<code>cmd</code>打开终端，再输入<code>ipconfig /all</code>划到最下面复制蓝牙MAC地址。</p><p><img src="/images/posts/23052302.png" alt="" /></p></li><li><p>第二步：将MAC地址中的<code>-</code>换成英文的<code>:</code>用<a href="https://www.sojson.com/hexadecimal.html">《16进制转换工具》</a>转换成16进制。</p></li><li><p>第三步：新建文本文件，把下面的代码复制进去，其中把<code>蓝牙MAC地址</code>改成上一步转换好的16进制代码，保存把文件重命名为<code>nfc.ndef</code>。</p></li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;NdefMessage&gt;d42a4d636f6d2e7869616f6d692e6d695f636f6e6e6563745f736572766963653a65787465726e616c747970650a4b0801100d2201032a094d492d4e4643544147380f4a31271700000008000e5441475f444953434f564552454465064d4952524f520111蓝牙MAC地址6a02fa7f&lt;/NdefMessage&gt;</span><br></pre></td></tr></table></figure><ol start="5"><li>第四步：下载《<a href="https://iqn.lanzoub.com/iNa2S0sjrlde">TagWrIter</a>密码：2m4m》软件，先将NFC标签擦除一遍，然后写入上一步制作的文件。</li></ol><h1 id="最后"><a class="markdownIt-Anchor" href="#最后"></a> 最后</h1><p>NFC贴纸就制作完成了，如果转流失败应该大多数就是第二步和第三步的问题。记得把 小米妙享、投屏、小米互联通信服务 更到最新版本。（电脑文件互传要把小米妙享更新到v3.3.0.529版本以上，且电脑为Redmi Book2023。如果不是可以下载<a href="https://iqn.lanzoub.com/iagd80x88hjg">小米妙享破解补丁改型号</a>解压放在小米妙享安装路径里）。</p><p>下面是成功的效果图。</p><p><img src="/images/posts/23052303.gif" alt="小米妙享效果图" /></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程·DIY </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+            <tag> NFC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【二改】桌面天气小电视</title>
       <link href="/posts/45861.html"/>
       <url>/posts/45861.html</url>
@@ -25,31 +52,6 @@
             <tag> Esp8266 </tag>
             
             <tag> Arduino </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>新Bing Ai体验</title>
-      <link href="/posts/54829.html"/>
-      <url>/posts/54829.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>上一周体验了朋友的Bing后看了看自己申请的邮箱一个月多迟迟没有消息，肯定是微软噶了ヽ（≧□≦）ノ。抱着再试一试的态度用新邮箱挂着美区的节点注册了一个新账号，结果刚注册就可以用。</p><p>因为我也没有Chat GPT的账号，只用过第三方的GPT。第三方的GPT（GPT中文）给我的感觉就是一个离线的百科资源库，无法实时更新，回答没有情感（比如让它扮演一个角色，回答的没有Bing有感情，人物动作语言描写不太丰盛），上下文联系有长度限制，所以不和Chat GPT做对比。</p><p><img src="/images/posts/23041601.png" alt="第三方GPT" /></p><p>微软把必应加入到了浏览器里，点击必应图标可以显示浏览页面的主要内容。体验下来的确方便了一点，但需要网页支持试了几个国内的网页都不行，而且提示也都是英文。。。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 开箱测评 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Bing </tag>
             
         </tags>
       
