@@ -9,6 +9,17 @@ body {
     overflow: hidden;
 }
 
+body::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -16,7 +27,7 @@ body {
     justify-content: center;
     height: 100vh;
     padding: 20px;
-    color: #fff;
+    color: #000;
     text-align: center;
     opacity: 0;
     animation: fade-in 1s forwards;
@@ -26,8 +37,8 @@ body {
 .avatar {
     display: block;
     margin: 0 auto;
-    width: 150px;
-    height: 150px;
+    width: 135px;
+    height: 135px;
     border-radius: 50%;
     object-fit: cover;
     object-position: center;
@@ -42,7 +53,7 @@ body {
     margin-top: 20px;
     font-size: 36px;
     font-weight: bold;
-    color: #000;
+    color: #1b1b1b;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
     opacity: 0;
     animation: fade-in 1s 1s forwards;
@@ -53,7 +64,7 @@ body {
     margin-top: 20px;
     font-size: 20px;
     font-weight: bold;
-    color: #000;
+    color: #1d1d1d;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
     opacity: 0;
     animation: fade-in 1s 1.5s forwards;
@@ -63,7 +74,7 @@ body {
 .hitokoto {
     margin-top: 20px;
     font-size: 18px;
-    color: #000;
+    color: #1d1d1d;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
     opacity: 0;
     animation: fade-in 1s 2s forwards;
@@ -85,9 +96,9 @@ body {
     padding: 10px 30px;
     font-size: 20px;
     font-weight: bold;
-    color: rgb(30, 30, 30);
+    color: rgb(51, 51, 51);
     text-decoration: none;
-    background-color: rgba(204, 204, 204, 0.5);
+    background-color: rgba(180, 180, 180, 0.5);
     border-radius: 5px;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
@@ -109,7 +120,7 @@ body {
 }
 
 .footer p { 
-	color: #888;
+	color: #444444;
 	font-size: 14px;
 }
 

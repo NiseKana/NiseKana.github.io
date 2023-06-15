@@ -8,18 +8,18 @@
     <link rel="shortcut icon" href="https://nisekana.github.io/img/logo/favicon.png" /> 
     <link rel="stylesheet" href="source/css/main.css" /> 
     <script type="text/javascript">
-        // 从 API 获取一言内容
+        // 这里是从一言API中获取一言哦ヾ(•ω•`)o
         fetch('https://v1.hitokoto.cn/')
             .then(response => response.json())
             .then(data => {
                 const hitokotoElem = document.querySelector('.hitokoto');
                 hitokotoElem.textContent = data.hitokoto;
             });
-        //显示  天 小时 分 秒版本
+        //这里是显示小破站的运行时间哦（＾∀＾●）ﾉｼ
     ! function () {
         function update() {
             var now = new Date();
-            var grt = new Date("2023-01-30 22:45:00"); /** 此处是计时的起始时间 **/
+            var grt = new Date("2023-01-30 22:45:00"); /* 在这里填写建站日期捏ヽ（≧□≦）ノ*/
             now.setTime(now.getTime() + 250);
             days = (now - grt) / 1000 / 60 / 60 / 24;
             dnum = Math.floor(days);
@@ -90,7 +90,7 @@
     <script src="source/js/sakura.js"></script>
     <div class="container">
         <!-- 头像 -->
-        <img src="https://nisekana.github.io/img/logo/Nisekana.png" alt="个人头像" class="avatar">
+        <img src="https://nisekana.github.io/img/logo/Nisekana.png" alt="" class="avatar">
 
         <!-- 名字 -->
         <h1 class="name">Nise Kana</h1>
@@ -103,17 +103,17 @@
 
         <!-- 导航 -->
         <div class="nav">
-            <a target="_blank" href="http://nisekana.github.io/" class="nav-item">博客</a>
-            <a target="_blank" href="http://nisekana.github.io/Music" class="nav-item">音乐</a>
-            <a target="_blank" href="mailto:nisekana2525@gmail.com" class="nav-item">邮箱</a>
-            <a target="_blank" href="https://nisekana.github.io/about/" class="nav-item">关于</a>
+            <a target="_blank" href="http://nisekana.github.io/" class="nav-item">博 客</a>
+            <a target="_blank" href="http://nisekana.github.io/Music" class="nav-item">音 乐</a>
+            <a target="_blank" href="mailto:nisekana2525@gmail.com" class="nav-item">邮 箱</a>
+            <a target="_blank" href="https://nisekana.github.io/about/" class="nav-item">关 于</a>
         </div>
     </div>    
     <div class="footer">
         <p class="copyright">
             <script>
                 var mydate = new Date();
-                document.writeln("Copyright&nbsp;&copy;&nbsp;2021 - " + mydate.getFullYear() + '&nbsp;&nbsp;by&nbsp;NiseKana&nbsp;&nbsp;All&nbsp;Rights&nbsp;Reserved');</script>
+                document.writeln("Copyright&nbsp;&copy;&nbsp;2023 - " + mydate.getFullYear() + '&nbsp;&nbsp;by&nbsp;NiseKana&nbsp;&nbsp;All&nbsp;Rights&nbsp;Reserved');</script>
         </p>
         <p class="run-time">
             <span id="timeDate">载入天数...</span>
