@@ -27,7 +27,7 @@ body::before {
     justify-content: center;
     height: 100vh;
     padding: 20px;
-    color: #000;
+    color: #fff;
     text-align: center;
     opacity: 0;
     animation: fade-in 1s forwards;
@@ -53,7 +53,7 @@ body::before {
     margin-top: 20px;
     font-size: 36px;
     font-weight: bold;
-    color: #1b1b1b;
+    color: #ffffff;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
     opacity: 0;
     animation: fade-in 1s 1s forwards;
@@ -64,7 +64,7 @@ body::before {
     margin-top: 20px;
     font-size: 20px;
     font-weight: bold;
-    color: #1d1d1d;
+    color: #ffffff;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
     opacity: 0;
     animation: fade-in 1s 1.5s forwards;
@@ -74,7 +74,7 @@ body::before {
 .hitokoto {
     margin-top: 20px;
     font-size: 18px;
-    color: #1d1d1d;
+    color: #ffffff;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
     opacity: 0;
     animation: fade-in 1s 2s forwards;
@@ -96,7 +96,7 @@ body::before {
     padding: 10px 30px;
     font-size: 20px;
     font-weight: bold;
-    color: rgb(51, 51, 51);
+    color: rgb(255, 255, 255);
     text-decoration: none;
     background-color: rgba(180, 180, 180, 0.5);
     border-radius: 5px;
@@ -120,7 +120,7 @@ body::before {
 }
 
 .footer p { 
-	color: #444444;
+	color: #c4c4c4;
 	font-size: 14px;
 }
 
