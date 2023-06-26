@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>MIUI13震动优化模块</title>
+      <link href="/posts/422.html"/>
+      <url>/posts/422.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>发一个以前制作的震动模块吧。</p><p>虽然MIUI13已经是去年发布了的，照顾某些钉子户吧，比如我( •̀ ω •́ )✧</p><p>修改了返回，进入多任务，通知清理的震动（把嗡嗡嗡改成了清脆震动）以及全局增强。</p><p>截至今天已经超过1000人使用，感谢支持o(〃＾▽＾〃)o。</p><p><img src="../images/posts/23062601.png" alt="23062601" /></p><p>下载链接：<a href="https://iqn.lanzoub.com/i4lEk08d9ooj">v1.0</a>、<a href="https://iqn.lanzoub.com/it8T008d9n0j">v2.0</a>、<a href="https://iqn.lanzoub.com/iCfrS08d6ere">v3.0</a>，（版本越大震动越强）</p><p>测试机型：Redmi K40s</p><p>设备系统：MIUI 13.0.6，MIUI 13.0.7 ，MIUI 13.2.5</p><p>安卓版本：安卓12（MIUI 13.0.6，MIUI 13.0.7 ），安卓13（MIUI 13.2.5）</p><p>⚠️联发科CPU未经测试请不要使用，安卓13震动有被削弱推荐安卓12使用。</p><blockquote><p>其他平台发布链接：<a href="https://www.coolapk.com/feed/37807119?shareKey=NWEyYWM4YTdiNzMwNjQ5OTMzMGQ~&amp;shareUid=3633462&amp;shareFrom=com.coolapk.market_13.1.5">来自 NiseKana - 酷安 (coolapk.com)</a></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Magisk/模块 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> Magisk </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CW32-48F大学计划版开箱</title>
       <link href="/posts/59371.html"/>
       <url>/posts/59371.html</url>
@@ -145,7 +172,7 @@
       <link href="/posts/53112.html"/>
       <url>/posts/53112.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>看了<a href="https://www.coolapk.com/feed/44220174?shareKey=Y2I4MWYyMGI4MjBiNjQxM2YxZDM~&amp;shareUid=3633462&amp;shareFrom=com.coolapk.market_10.5">yanbo92大佬的动态</a>二改的Magisk模块<img src="http://static.coolapk.com/emoticons/v9/coolapk_emotion_32_heiha.png" alt="嘿哈" />自己想要其他图案样式可以参考大佬的动态改。<br />由于截屏接不到，下图是我ps的，可以看看效果<img src="http://static.coolapk.com/emoticons/v9/coolapk_emotion_3_ciya.png" alt="呲牙" /><br />下载链接：<a href="https://iqn.lanzoub.com/iScB80qay5bc">下载</a><br />测试机型：红米k40s<br />设备系统：MIUI 13.2.5<br />安卓版本：安卓13<br />⚠️联发科cpu不要用，按道理应该兼容k40（未测试<img src="http://static.coolapk.com/emoticons/v9/coolapk_emotion_64_shounuehuaji.png" alt="受虐滑稽" />)</p><p><img src="../images/posts/23031701.jpg" alt="23031701" /></p><blockquote><p>其他平台发布链接：[虽然有点丑<a href="https://www.coolapk.com/feed/44247570?shareKey=MDMwNDFkZWMxMmRjNjQ5OTI5NWY~&amp;shareUid=3633462&amp;shareFrom=com.coolapk.market_13.1.5">受虐滑稽]… 来自 NiseKana - 酷安 (coolapk.com)</a></p></blockquote>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>看了<a href="https://www.coolapk.com/feed/44220174?shareKey=Y2I4MWYyMGI4MjBiNjQxM2YxZDM~&amp;shareUid=3633462&amp;shareFrom=com.coolapk.market_10.5">yanbo92大佬的动态</a>二改的Magisk模块<img src="http://static.coolapk.com/emoticons/v9/coolapk_emotion_32_heiha.png" alt="嘿哈" />自己想要其他图案样式可以参考大佬的动态改。<br />由于截屏接不到，下图是我ps的，可以看看效果<img src="http://static.coolapk.com/emoticons/v9/coolapk_emotion_3_ciya.png" alt="呲牙" /><br />下载链接：<a href="https://iqn.lanzoub.com/iScB80qay5bc">下载</a><br />测试机型：红米k40s<br />设备系统：MIUI 13.2.5<br />安卓版本：安卓13<br />⚠️联发科CPU未经测试请不要使用，按道理应该兼容k40（未测试<img src="http://static.coolapk.com/emoticons/v9/coolapk_emotion_64_shounuehuaji.png" alt="受虐滑稽" />)</p><p><img src="../images/posts/23031701.jpg" alt="23031701" /></p><blockquote><p>其他平台发布链接：[虽然有点丑<a href="https://www.coolapk.com/feed/44247570?shareKey=MDMwNDFkZWMxMmRjNjQ5OTI5NWY~&amp;shareUid=3633462&amp;shareFrom=com.coolapk.market_13.1.5">受虐滑稽]… 来自 NiseKana - 酷安 (coolapk.com)</a></p></blockquote>]]></content>
       
       
       <categories>
