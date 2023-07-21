@@ -1,0 +1,258 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>【教程】基于STM32的CV键盘 | NiseKanaの巣</title><meta name="author" content="NiseKana"><meta name="copyright" content="NiseKana"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言 使用STM32F103C8T6MCU做键盘主控。 软件环境：Keil5 MDK，STM32CubeMX 基本硬件：STM32最小系统板，SWDLink&#x2F;STLink，USB连接线  教程  CubeMX配置工程  什么是HID USB-HID是Universal Serial Bus-Human Interface Device的缩写，由其名称可以了解HID设备是直接与人交互的设备，例如键">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【教程】基于STM32的CV键盘">
+<meta property="og:url" content="http://nisekana.github.io/posts/58398.html">
+<meta property="og:site_name" content="NiseKanaの巣">
+<meta property="og:description" content="前言 使用STM32F103C8T6MCU做键盘主控。 软件环境：Keil5 MDK，STM32CubeMX 基本硬件：STM32最小系统板，SWDLink&#x2F;STLink，USB连接线  教程  CubeMX配置工程  什么是HID USB-HID是Universal Serial Bus-Human Interface Device的缩写，由其名称可以了解HID设备是直接与人交互的设备，例如键">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://nisekana.github.io/images/posts/23072015.gif">
+<meta property="article:published_time" content="2023-07-20T08:40:00.000Z">
+<meta property="article:modified_time" content="2023-07-21T12:40:00.000Z">
+<meta property="article:author" content="NiseKana">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="小练习">
+<meta property="article:tag" content="STM32F103C8T6">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://nisekana.github.io/images/posts/23072015.gif"><link rel="shortcut icon" href="/img/logo/favicon.png"><link rel="canonical" href="http://nisekana.github.io/posts/58398.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"距离上次更新已经","messageNext":"天了，文章内容可能已经过时。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#4c4b4f","bgDark":"#4c4b4f","position":"top-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【教程】基于STM32的CV键盘',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-21 20:40:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/self.css"><meta name="generator" content="Hexo 6.3.0"></head><body><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/logo/Nisekana.png" onerror="onerror=null;src='/img/error/error.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fa fa-lines-leaning"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="NiseKanaの巣"><img class="site-icon" src="/img/logo/Logo.png"/><span class="site-name">NiseKanaの巣</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fa fa-lines-leaning"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">【教程】基于STM32的CV键盘</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-20T08:40:00.000Z" title="发表于 2023-07-20 16:40:00">2023-07-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-21T12:40:00.000Z" title="更新于 2023-07-21 20:40:00">2023-07-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B%C2%B7DIY/">教程·DIY</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【教程】基于STM32的CV键盘"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/posts/58398.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/posts/58398.html" itemprop="commentCount"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div><article class="post-content" id="article-container"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>使用STM32F103C8T6MCU做键盘主控。</p>
+<p>软件环境：Keil5 MDK，STM32CubeMX</p>
+<p>基本硬件：STM32最小系统板，SWDLink/STLink，USB连接线</p>
+<h1 id="教程"><a class="markdownIt-Anchor" href="#教程"></a> 教程</h1>
+<h2 id="cubemx配置工程"><a class="markdownIt-Anchor" href="#cubemx配置工程"></a> CubeMX配置工程</h2>
+<h3 id="什么是hid"><a class="markdownIt-Anchor" href="#什么是hid"></a> 什么是HID</h3>
+<p>USB-HID是Universal Serial Bus-Human Interface Device的缩写，由其名称可以了解HID设备是直接与人交互的设备，例如键盘、鼠标等。</p>
+<p><a target="_blank" rel="noopener" href="https://usbzh.com/article/detail-76.html">HID 简介 - USB中文网 (usbzh.com)</a></p>
+<h3 id="配置hid设备"><a class="markdownIt-Anchor" href="#配置hid设备"></a> 配置HID设备</h3>
+<p>当然，我也不可能手搓HID驱动，我也不会，哈哈。这里就要用到STM32CubeMX把STM32配置成HID设备。</p>
+<p>打开CudeMX新建工程，选择STM32F103C8T6，开始新建工程。</p>
+<p><img src="../source/images/posts/23072001.png" alt="23072001" /></p>
+<p>根据自己的下载器选择，SWD就选Serial Wire，不选择的话下次下载时就不能用WSD下载，除非用串口下载一个开启WSD下载的程序。</p>
+<p><img src="../source/images/posts/23072002.png" alt="23072002" /></p>
+<p>在RCC这里选择使用外部晶振。</p>
+<p><img src="../source/images/posts/23072003.png" alt="23072003" /></p>
+<p>启用USB设备。</p>
+<p><img src="../source/images/posts/23072004.png" alt="23072004" /></p>
+<p>在这里选择HID设备，可以更改设备厂商和型号满足自定义的需求。</p>
+<p><img src="../source/images/posts/23072005.png" alt="23072005" /></p>
+<p>按提示配置GPIO引脚为上拉输入模式，也可以暂时不配置，事后在keil里配置。确保图中框着的几个引脚已配置好。</p>
+<p><img src="../source/images/posts/23072006.png" alt="23072006" /></p>
+<p>时钟配置页选择自动配置时钟。</p>
+<p><img src="../source/images/posts/23072007.png" alt="23072007" /></p>
+<p>进入工程管理，配置好工程名字，工程路径，开发环境选择MDK-ARM，把最小堆大小设置0x600。</p>
+<p><img src="../source/images/posts/23072008.png" alt="23072008" /></p>
+<p>勾选生成单独的.C/.H文件，生成工程。</p>
+<p><img src="../source/images/posts/23072009.png" alt="23072009" /></p>
+<h2 id="keil配置工程"><a class="markdownIt-Anchor" href="#keil配置工程"></a> Keil配置工程</h2>
+<p>找到刚生成的工程，添加启动文件，编译下载，零错误零警告。</p>
+<p><img src="../source/images/posts/23072010.png" alt="23072010" /></p>
+<p><img src="../source/images/posts/23072011.png" alt="23072011" /></p>
+<h3 id="什么是描述文件"><a class="markdownIt-Anchor" href="#什么是描述文件"></a> 什么是描述文件？</h3>
+<p>USB描述文件（USB Descriptors File）是一个特定格式的文件，用于存储USB设备的描述符信息。在开发USB设备时，通过编写描述文件可以定义设备的各种描述符及其属性，以便主机系统正确地识别和与设备进行通信。</p>
+<p>相关资料请查看<a target="_blank" rel="noopener" href="https://www.usbzh.com/article/detail-877.html">HID报表描述符原理解释 - USB中文网 (usbzh.com)</a></p>
+<h3 id="usb描述文件"><a class="markdownIt-Anchor" href="#usb描述文件"></a> USB描述文件</h3>
+<p><img src="../source/images/posts/23072011-1689930535661-1.png" alt="23072011" /></p>
+<h3 id="hid描述文件"><a class="markdownIt-Anchor" href="#hid描述文件"></a> HID描述文件</h3>
+<p>0x32表示为该口提供的最大输出电流。（0x32换算十进制即50，再×2 即100）即这里提供最大100ma输出电流。USB2.0最大提供输出500ma电流，即最大设置为0xFA；</p>
+<p><img src="../source/images/posts/23072012.png" alt="23072012" /></p>
+<h3 id="键盘报告描述符"><a class="markdownIt-Anchor" href="#键盘报告描述符"></a> 键盘报告描述符</h3>
+<p>继续在<code>usbd_hid.c</code>文件修改<code>HID_MOUSE_ReportDesc[HID_MOUSE_REPORT_DESC_SIZE]</code>这个数组内容为以下内容。</p>
+<p>参考USB中文网-<a target="_blank" rel="noopener" href="https://usbzh.com/article/detail-326.html">USB键盘报告描述符数据格式分析 - USB中文网 (usbzh.com)</a></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0x05</span>,<span class="number">0x01</span>,<span class="comment">// Global Generic Desktop</span></span><br><span class="line"><span class="number">0x09</span>,<span class="number">0x06</span>,<span class="comment">// Local KeyBoard </span></span><br><span class="line"><span class="number">0xA1</span>,<span class="number">0x01</span>,<span class="comment">// Main app collection</span></span><br><span class="line"><span class="number">0x05</span>,<span class="number">0x07</span>,<span class="comment">// Global KeyBoard</span></span><br><span class="line"><span class="comment">//第1字节</span></span><br><span class="line"><span class="number">0x19</span>,<span class="number">0xe0</span>,<span class="comment">// Local Usage Min (KeyBoard LeftControl)</span></span><br><span class="line"><span class="number">0x29</span>,<span class="number">0xe7</span>,<span class="comment">// Local Usage Max (KeyBoard Right GUI)</span></span><br><span class="line"><span class="number">0x15</span>,<span class="number">0x00</span>,<span class="comment">// Global Logical Min</span></span><br><span class="line"><span class="number">0x25</span>,<span class="number">0x01</span>,<span class="comment">// Global Logical Max </span></span><br><span class="line"><span class="number">0x95</span>,<span class="number">0x08</span>,<span class="comment">// Global ReportCount</span></span><br><span class="line"><span class="number">0x75</span>,<span class="number">0x01</span>,<span class="comment">// Global ReportSize</span></span><br><span class="line"><span class="number">0x81</span>,<span class="number">0x02</span>,<span class="comment">// Main Input(Data,Var,Abs)</span></span><br><span class="line"><span class="comment">//第2字节</span></span><br><span class="line"><span class="number">0x95</span>,<span class="number">0x01</span>,<span class="comment">// Global ReportCount</span></span><br><span class="line"><span class="number">0x75</span>,<span class="number">0x08</span>,<span class="comment">// Global ReportSize</span></span><br><span class="line"><span class="number">0x81</span>,<span class="number">0x03</span>,<span class="comment">// Main Input(Cnst,Var,Abs)</span></span><br><span class="line"><span class="comment">//第3-8字节</span></span><br><span class="line"><span class="number">0x95</span>,<span class="number">0x06</span>,<span class="comment">// Global ReportCount</span></span><br><span class="line"><span class="number">0x75</span>,<span class="number">0x08</span>,<span class="comment">// Global ReportSize</span></span><br><span class="line"><span class="number">0x15</span>,<span class="number">0x00</span>,<span class="comment">// Global Logical Min</span></span><br><span class="line"><span class="number">0x26</span>,<span class="number">0xff</span>,<span class="number">0x00</span>,<span class="comment">//Global Logical Max</span></span><br><span class="line"><span class="number">0x19</span>,<span class="number">0x00</span>,<span class="comment">// Local Usage Min</span></span><br><span class="line"><span class="number">0x29</span>,<span class="number">0x65</span>,<span class="comment">// Local Usage Max</span></span><br><span class="line"><span class="number">0x81</span>,<span class="number">0x00</span>,<span class="comment">// Main Output(Data,Ary,Abs)</span></span><br><span class="line"><span class="comment">//1字节输出报告</span></span><br><span class="line"><span class="number">0x15</span>,<span class="number">0x00</span>,<span class="comment">// Global Logical Min</span></span><br><span class="line"><span class="number">0x25</span>,<span class="number">0x01</span>,<span class="comment">// Global Logical Max</span></span><br><span class="line"><span class="number">0x95</span>,<span class="number">0x05</span>,<span class="comment">// Global ReportCount</span></span><br><span class="line"><span class="number">0x75</span>,<span class="number">0x01</span>,<span class="comment">// Global ReportSize</span></span><br><span class="line"><span class="number">0x05</span>,<span class="number">0x08</span>,<span class="comment">// Global LED</span></span><br><span class="line"><span class="number">0x19</span>,<span class="number">0x01</span>,<span class="comment">// Local Usage Min</span></span><br><span class="line"><span class="number">0x29</span>,<span class="number">0x05</span>,<span class="comment">// Local Usage Max</span></span><br><span class="line"><span class="number">0x91</span>,<span class="number">0x02</span>,<span class="comment">// Main Output(Data,Var,Abs)</span></span><br><span class="line"><span class="comment">//补足上面变成1个字节</span></span><br><span class="line"><span class="number">0x95</span>,<span class="number">0x01</span>,<span class="comment">// Global ReportCount</span></span><br><span class="line"><span class="number">0x75</span>,<span class="number">0x03</span>,<span class="comment">// Global ReportSize</span></span><br><span class="line"><span class="number">0x91</span>,<span class="number">0x03</span>,<span class="comment">// Main Output(Cnst,Var,Abs)</span></span><br><span class="line"><span class="number">0xc0</span>      <span class="comment">// Main End collection</span></span><br><span class="line">    <span class="comment">// 66 betys</span></span><br></pre></td></tr></table></figure>
+<p><img src="../source/images/posts/23072013.png" alt="23072013" /></p>
+<p>在<code>usbd_hid.h</code>这个文件修改<code>HID_EPIN_SIZE</code> 为<code>0x08U</code>即，<code>HID_MOUSE_REPORT_DESC_SIZE</code>为<code>66U</code>。</p>
+<p>图中<code>HID_EPIN_SIZE</code> 定义HID设备的输入端点缓冲区的大小。这个常量值可以告诉代码在接收HID数据时需要分配多大的缓冲区空间，通常鼠标为4，键盘为8。</p>
+<p>图中<code>HID_MOUSE_REPORT_DESC_SIZE</code> 定义HID鼠标设备的报告描述符的大小。这个常量值可以告诉代码在分配缓冲区时需要为报告描述符预留多大的空间。</p>
+<p><img src="../source/images/posts/23072014.png" alt="23072014" /></p>
+<h3 id="键盘数据结构"><a class="markdownIt-Anchor" href="#键盘数据结构"></a> 键盘数据结构</h3>
+<p>键盘的描述符共有8字节的输入报告和1字节的输出报告。</p>
+<p>1字节输出报告：</p>
+<ul>
+<li>这1个字节总共用了5bits使用3bits常量来补足成1个字节。5bits用来点亮特殊键盘上的Led灯，比如键盘的大小写，数字键，小键盘的LED灯。</li>
+</ul>
+<p>8字节的输入报告：</p>
+<ul>
+<li>Byte0各位则表示左右GUI(win),alt，shift，control键是否按下，按下为1。</li>
+<li>Byte1是保留字节。</li>
+<li>其6个字节表示此时按下的其他所有键盘按键的键码，从低到高填充，没按就是0x00.如果同时按下的键超过允许，则显示0xff。</li>
+</ul>
+<p>参考-<a target="_blank" rel="noopener" href="https://usbzh.com/article/detail-1086.html">USB键盘的数据结构 - USB中文网 (usbzh.com)</a></p>
+<h3 id="键盘发送文报"><a class="markdownIt-Anchor" href="#键盘发送文报"></a> 键盘发送文报</h3>
+<p>前面在CubeMX配置HID时已经把PB13，PB14，PB15引脚初始化过了，这里就直接配置发报函数。</p>
+<p>键码表参考 - <a target="_blank" rel="noopener" href="https://usbzh.com/article/detail-326.html">USB键盘报告描述符数据格式分析 - USB中文网 (usbzh.com)</a>，<a target="_blank" rel="noopener" href="https://usbzh.com/article/detail-1086.html">USB键盘的数据结构 - USB中文网 (usbzh.com)</a></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">uint8_t</span> hidbuffer[<span class="number">8</span>];</span><br><span class="line"><span class="keyword">extern</span> USBD_HandleTypeDef hUsbDeviceFS;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    ... ...</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="built_in">memset</span>(hidbuffer,<span class="number">0</span>,<span class="number">8</span>);		<span class="comment">//将hidbuffer数组全部设置为0</span></span><br><span class="line">    </span><br><span class="line"> 	<span class="keyword">if</span> (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13) == GPIO_PIN_RESET)</span><br><span class="line">    &#123;</span><br><span class="line">     	HAL_Delay(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13) == GPIO_PIN_RESET)</span><br><span class="line">		hidbuffer[<span class="number">0</span>] = <span class="number">0x01</span>;<span class="comment">//Ctrl</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14) == GPIO_PIN_RESET)</span><br><span class="line">    &#123;</span><br><span class="line">     	HAL_Delay(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14) == GPIO_PIN_RESET)</span><br><span class="line">		hidbuffer[<span class="number">2</span>] = <span class="number">0x06</span>;<span class="comment">//C</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_15) == GPIO_PIN_RESET)</span><br><span class="line">    &#123;</span><br><span class="line">     	HAL_Delay(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_15) == GPIO_PIN_RESET)</span><br><span class="line">		hidbuffer[<span class="number">2</span>] = <span class="number">0x19</span>;<span class="comment">//V</span></span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">    USBD_CUSTOM_HID_SendReport(&amp;hUsbDeviceFS,hidbuffer,<span class="keyword">sizeof</span> (hidbuffer) / <span class="keyword">sizeof</span> (hidbuffer [<span class="number">0</span>]));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>完成后编译，下载。</p>
+<h1 id="结束"><a class="markdownIt-Anchor" href="#结束"></a> 结束</h1>
+<p>好了，现在一个属于自己的CV键盘就制作完成了。</p>
+<p><img src="../source/images/posts/23072015.gif" alt="23072015" /></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://nisekana.github.io">NiseKana</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://nisekana.github.io/posts/58398.html">http://nisekana.github.io/posts/58398.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://nisekana.github.io" target="_blank">NiseKanaの巣</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><a class="post-meta__tags" href="/tags/%E5%B0%8F%E7%BB%83%E4%B9%A0/">小练习</a><a class="post-meta__tags" href="/tags/STM32F103C8T6/">STM32F103C8T6</a></div><div class="post_share"><div class="social-share" data-image="/images/posts/23072015.gif" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/reward/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/reward/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/reward/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/reward/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/posts/32756.html" title="恭喜啊鹿Bilibili粉丝200W达成"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">恭喜啊鹿Bilibili粉丝200W达成</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/45861.html" title="【二改】桌面天气小电视"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-27</div><div class="title">【二改】桌面天气小电视</div></div></a></div><div><a href="/posts/45214.html" title="【教程】电视优化分享"><img class="cover" src="/images/posts/23020401.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-04</div><div class="title">【教程】电视优化分享</div></div></a></div><div><a href="/posts/39246.html" title="【小练习】ESP8266舵机测试程序"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-15</div><div class="title">【小练习】ESP8266舵机测试程序</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/logo/Nisekana.png" onerror="this.onerror=null;this.src='/img/error/error.gif'" alt="avatar"/></div><div class="author-info__name">NiseKana</div><div class="author-info__description">小鹿包です、喜欢一切可爱的事物。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" href="https://nisekana.github.io/home/"><i></i><span>二濑神奈の个人主页</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/nisekana" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:nisekana@gmail.com" target="_blank" title="Mail"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/94705527" target="_blank" title="哔哩哔哩"><i class="fab fa-bilibili"></i></a><a class="social-icon" href="https://www.coolapk.com/u/3633462" target="_blank" title="酷安"><i class="fab fa-android"></i></a><a class="social-icon" href="https://music.163.com/m/user/home?id=617987829" target="_blank" title="网易云音乐"><i class="fas fa-music"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><center><h3>欢迎来到我的小窝！</h3></center><p>1.评论功能暂时不可用。如有问题，请使用邮箱联系作者。</p><p>2.点击<a href="https://iqn.lanzoub.com/i6F5a0ob365a" target="_blank">这里</a>下载NiseKanaの巣APP ο(=•ω＜=)ρ⌒☆。密码：0000</P></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%99%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text"> 教程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#cubemx%E9%85%8D%E7%BD%AE%E5%B7%A5%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text"> CubeMX配置工程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFhid"><span class="toc-number">2.1.1.</span> <span class="toc-text"> 什么是HID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEhid%E8%AE%BE%E5%A4%87"><span class="toc-number">2.1.2.</span> <span class="toc-text"> 配置HID设备</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#keil%E9%85%8D%E7%BD%AE%E5%B7%A5%E7%A8%8B"><span class="toc-number">2.2.</span> <span class="toc-text"> Keil配置工程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 什么是描述文件？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#usb%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6"><span class="toc-number">2.2.2.</span> <span class="toc-text"> USB描述文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hid%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6"><span class="toc-number">2.2.3.</span> <span class="toc-text"> HID描述文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%AE%E7%9B%98%E6%8A%A5%E5%91%8A%E6%8F%8F%E8%BF%B0%E7%AC%A6"><span class="toc-number">2.2.4.</span> <span class="toc-text"> 键盘报告描述符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%AE%E7%9B%98%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">2.2.5.</span> <span class="toc-text"> 键盘数据结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%AE%E7%9B%98%E5%8F%91%E9%80%81%E6%96%87%E6%8A%A5"><span class="toc-number">2.2.6.</span> <span class="toc-text"> 键盘发送文报</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9D%9F"><span class="toc-number">3.</span> <span class="toc-text"> 结束</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/58398.html" title="【教程】基于STM32的CV键盘"><img src="/images/posts/23072015.gif" onerror="this.onerror=null;this.src='/img/error/error_404.png'" alt="【教程】基于STM32的CV键盘"/></a><div class="content"><a class="title" href="/posts/58398.html" title="【教程】基于STM32的CV键盘">【教程】基于STM32的CV键盘</a><time datetime="2023-07-20T08:40:00.000Z" title="发表于 2023-07-20 16:40:00">2023-07-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/32756.html" title="恭喜啊鹿Bilibili粉丝200W达成">恭喜啊鹿Bilibili粉丝200W达成</a><time datetime="2023-07-08T12:45:00.000Z" title="发表于 2023-07-08 20:45:00">2023-07-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/422.html" title="【Magisk】MIUI13震动优化模块">【Magisk】MIUI13震动优化模块</a><time datetime="2023-06-26T06:45:00.000Z" title="发表于 2023-06-26 14:45:00">2023-06-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/23639.html" title="【笔记】CW32学习笔记">【笔记】CW32学习笔记</a><time datetime="2023-06-24T04:22:00.000Z" title="发表于 2023-06-24 12:22:00">2023-06-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/59371.html" title="【开箱】CW32-48F大学计划版开箱"><img src="/images/posts/23060301.jpg" onerror="this.onerror=null;this.src='/img/error/error_404.png'" alt="【开箱】CW32-48F大学计划版开箱"/></a><div class="content"><a class="title" href="/posts/59371.html" title="【开箱】CW32-48F大学计划版开箱">【开箱】CW32-48F大学计划版开箱</a><time datetime="2023-06-03T08:40:00.000Z" title="发表于 2023-06-03 16:40:00">2023-06-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">Copyright &copy;2022 - 2023 By NiseKana</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly<div></a><span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+</div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script src="/js/self.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="🍰,🔥,🌟,✨,🎁,👻,🎈,🎉,🔔,🎃,🎄,🎀,☀️,🌙,💧" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":-15,"vOffset":-60},"mobile":{"show":false},"react":{"opacity":1},"log":false});</script></body></html>
