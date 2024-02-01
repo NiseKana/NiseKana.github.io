@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>【复刻】基于 ESP8266 的 Kame 蜘蛛机器人</title>
+      <link href="/posts/44288.html"/>
+      <url>/posts/44288.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="../images/posts/23112701.jpg" alt="KAME1" /></p><p><img src="../images/posts/23112702.jpg" alt="KAME2" /></p><p><img src="../images/posts/23112703.jpg" alt="KAME3" /></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程·DIY </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Esp8266 </tag>
+            
+            <tag> Arduino </tag>
+            
+            <tag> 小制作 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【开源】基于梁山派的智能窗户</title>
       <link href="/posts/27820.html"/>
       <url>/posts/27820.html</url>
@@ -20,9 +49,13 @@
       
         <tags>
             
-            <tag> 教程 </tag>
+            <tag> Esp8266 </tag>
             
-            <tag> 小练习 </tag>
+            <tag> Arduino </tag>
+            
+            <tag> 小制作 </tag>
+            
+            <tag> 梁山派 </tag>
             
         </tags>
       
@@ -31,7 +64,34 @@
     
     
     <entry>
-      <title>【开源】USB2.0HUB制作</title>
+      <title>【复刻】基于梁山派的游戏机</title>
+      <link href="/posts/56184.html"/>
+      <url>/posts/56184.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="../images/posts/23122101.jpg" alt="23122101" /></p><p><img src="../images/posts/23122102.jpg" alt="23122102" /></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程·DIY </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 小制作 </tag>
+            
+            <tag> 梁山派 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【开源】USB2.0 HUB制作</title>
       <link href="/posts/8977.html"/>
       <url>/posts/8977.html</url>
       
@@ -49,7 +109,7 @@
             
             <tag> 教程 </tag>
             
-            <tag> 小练习 </tag>
+            <tag> 小制作 </tag>
             
         </tags>
       
@@ -76,7 +136,7 @@
             
             <tag> 教程 </tag>
             
-            <tag> 小练习 </tag>
+            <tag> 小制作 </tag>
             
             <tag> Air001 </tag>
             
@@ -155,7 +215,7 @@
             
             <tag> 教程 </tag>
             
-            <tag> 小练习 </tag>
+            <tag> 小制作 </tag>
             
             <tag> STM32F103C8T6 </tag>
             
@@ -238,9 +298,9 @@
       
         <tags>
             
-            <tag> Magisk </tag>
-            
             <tag> Android </tag>
+            
+            <tag> Magisk </tag>
             
         </tags>
       
@@ -344,7 +404,7 @@
       
         <tags>
             
-            <tag> 小练习 </tag>
+            <tag> 小制作 </tag>
             
             <tag> NFC </tag>
             
@@ -377,7 +437,7 @@
             
             <tag> Arduino </tag>
             
-            <tag> 小练习 </tag>
+            <tag> 小制作 </tag>
             
         </tags>
       
@@ -456,9 +516,9 @@
       
         <tags>
             
-            <tag> Magisk </tag>
-            
             <tag> Android </tag>
+            
+            <tag> Magisk </tag>
             
         </tags>
       
@@ -633,9 +693,9 @@
       
         <tags>
             
-            <tag> Android </tag>
-            
             <tag> 电视 </tag>
+            
+            <tag> Android </tag>
             
             <tag> 教程 </tag>
             
