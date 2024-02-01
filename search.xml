@@ -8,7 +8,7 @@
       <link href="/posts/27820.html"/>
       <url>/posts/27820.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote><p>首发链接：[基于梁山派的智能窗户项目 - 嘉立创EDA开源硬件平台 (<a href="http://oshwhub.com">oshwhub.com</a>)](<a href="https://oshwhub.com/nisekana/liang-shan-pai-zhi-neng-chaunghu">https://oshwhub.com/nisekana/liang-shan-pai-zhi-neng-chaunghu</a></p></blockquote>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote><p>首发链接：<a href="https://oshwhub.com/nisekana/liang-shan-pai-zhi-neng-chaunghu">基于梁山派的智能窗户项目 - 嘉立创EDA开源硬件平台 (oshwhub.com)</a></p></blockquote><h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1><p>电子小白第一次参加立创的训练营，也是第一次做拿得出手的电子产品啦，虽然是基础营，但全都是一个人完成的。有不好的地方大家可以提出讨论。</p><h1 id="电路原理图"><a class="markdownIt-Anchor" href="#电路原理图"></a> 电路原理图</h1><p><img src="../images/posts/23101001.png" alt="智能窗户原理图" /></p><h1 id="实物图"><a class="markdownIt-Anchor" href="#实物图"></a> 实物图</h1><p><img src="../images/posts/23101002.jpg" alt="实物图1" /></p><p><img src="../images/posts/23101003.jpg" alt="实物图2" /></p><h1 id="演示"><a class="markdownIt-Anchor" href="#演示"></a> 演示</h1><p><a href="https://www.bilibili.com/video/av534626790/">https://www.bilibili.com/video/av534626790/</a></p>]]></content>
       
       
       <categories>
@@ -62,7 +62,7 @@
       <link href="/posts/60076.html"/>
       <url>/posts/60076.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1><p>前一段时间合宙新出了一个 9.9 的开发板 Air001 加一毛钱就可以得到 10 个Air001 芯片。本人也刚学单片机不久，想着买来玩玩，就下单了。到货之后 → 看官方手册 → 打开 Arduino → 流水灯 → 进盒子 → 吃灰。这段时间正好学习立创 EDA 就想着拿出来画个板来练练手，参考官方手册画了个核心板分享一下。</p><h1 id="原理图"><a class="markdownIt-Anchor" href="#原理图"></a> 原理图</h1><p>![屏幕截图 2024-02-01 115057](…/images/posts/屏幕截图 2024-02-01 115057.png)</p><h1 id="实物图"><a class="markdownIt-Anchor" href="#实物图"></a> 实物图</h1><p>![屏幕截图 2024-02-01 115350](…/images/posts/屏幕截图 2024-02-01 115350.png)</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1><p>前一段时间合宙新出了一个 9.9 的开发板 Air001 加一毛钱就可以得到 10 个Air001 芯片。本人也刚学单片机不久，想着买来玩玩，就下单了。到货之后 → 看官方手册 → 打开 Arduino → 流水灯 → 进盒子 → 吃灰。这段时间正好学习立创 EDA 就想着拿出来画个板来练练手，参考官方手册画了个核心板分享一下。</p><h1 id="原理图"><a class="markdownIt-Anchor" href="#原理图"></a> 原理图</h1><p><img src="../images/posts/23082601.png" alt="屏幕截图 2024-02-01 115057" /></p><h1 id="实物图"><a class="markdownIt-Anchor" href="#实物图"></a> 实物图</h1><p><img src="../images/posts/23082602.png" alt="屏幕截图 2024-02-01 115350" /></p>]]></content>
       
       
       <categories>
@@ -238,9 +238,9 @@
       
         <tags>
             
-            <tag> Android </tag>
-            
             <tag> Magisk </tag>
+            
+            <tag> Android </tag>
             
         </tags>
       
@@ -456,9 +456,9 @@
       
         <tags>
             
-            <tag> Android </tag>
-            
             <tag> Magisk </tag>
+            
+            <tag> Android </tag>
             
         </tags>
       
@@ -633,9 +633,9 @@
       
         <tags>
             
-            <tag> 电视 </tag>
-            
             <tag> Android </tag>
+            
+            <tag> 电视 </tag>
             
             <tag> 教程 </tag>
             

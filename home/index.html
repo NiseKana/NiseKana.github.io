@@ -1,124 +1,183 @@
 <!DOCTYPE html>
-<html>
+<!-- 
+项目名称：YY.Wiki · Home
+维护成员：千玄（8031379）Ytest（*****）
+更新时间：2020年6月28日 08:11:14
+ -->
+<html lang="cn">
 <head>
-    <title>NiseKana</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8" /> 
-    <meta http-equiv="content-language" content="zh-cn" /> 
-    <link rel="shortcut icon" href="https://nisekana.github.io/img/logo/favicon.png" /> 
-    <link rel="stylesheet" href="source/css/main.css" /> 
-    <script type="text/javascript">
-        // 这里是从一言API中获取一言哦ヾ(•ω•`)o
-        fetch('https://v1.hitokoto.cn/')
-            .then(response => response.json())
-            .then(data => {
-                const hitokotoElem = document.querySelector('.hitokoto');
-                hitokotoElem.textContent = data.hitokoto;
-            });
-        //这里是显示小破站的运行时间哦（＾∀＾●）ﾉｼ
-    ! function () {
-        function update() {
-            var now = new Date();
-            var grt = new Date("2023-01-30 22:45:00"); /* 在这里填写建站日期捏ヽ（≧□≦）ノ*/
-            now.setTime(now.getTime() + 250);
-            days = (now - grt) / 1000 / 60 / 60 / 24;
-            dnum = Math.floor(days);
-            hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
-            hnum = Math.floor(hours);
-            if (String(hnum).length === 1) {
-                hnum = "0" + hnum;
-            }
-            minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
-            mnum = Math.floor(minutes);
-            if (String(mnum).length === 1) {
-                mnum = "0" + mnum;
-            }
-            seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-            snum = Math.round(seconds);
-            if (String(snum).length === 1) {
-                snum = "0" + snum;
-            }
-            document.getElementById("timeDate").innerHTML = "小破站已经度过了&nbsp" + dnum + "&nbsp天";
-            document.getElementById("times").innerHTML = hnum + "&nbsp时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
-        }
-        setInterval(update, 1000);
-    }();
-    /*显示 年 天 小时 分 秒版本
-    ! function () {
-        function update() {
-            var now = new Date();
-            var grt = new Date("2020-04-03 00:00:00"); //此处是计时的起始时间
-            var nowFullyear = now.getFullYear();    //获取当前年份
-            ! function Nayear () {
-                if ((nowFullyear % 4 == 0 && nowFullyear % 100 != 0  ) || (nowFullyear % 400 == 0)) {  //判断闰年平年取准确的一年所含天数
-                    return yearDate = 366;
-                }
-                return yearDate = 365;
-            }();
-            now.setTime(now.getTime() + 250); //获取距离1970年1月1日0点0分到当前时间的总毫秒数
-            tolsecond = (now - grt) / 1000;
-            days = tolsecond / 60 / 60 / 24;
-            idnum = Math.floor(days);
-            year = (idnum / yearDate);
-            ynum = Math.floor(year);
-            dnum = idnum - (yearDate * ynum);
-            hours = tolsecond / 60 / 60 - (24 * ynum * yearDate) - (24 * dnum);
-            hnum = Math.floor(hours);
-            if (String(hnum).length === 1) {
-                hnum = "0" + hnum;
-            }
-            minutes = tolsecond / 60 - (24 * 60 * ynum * yearDate) - (24 * 60 * dnum) - (60 * hnum);
-            mnum = Math.floor(minutes);
-            if (String(mnum).length === 1) {
-                mnum = "0" + mnum;
-            }
-            seconds = tolsecond - (24 * 60 * 60 * ynum * yearDate) - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-            snum = Math.round(seconds);
-            if (String(snum).length === 1) {
-                snum = "0" + snum;
-            }
-            document.getElementById("timeDate").innerHTML = "本站安全运行&nbsp" + ynum + "&nbsp年" + dnum + "&nbsp天";
-            document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
-        }
-        setInterval(update, 1000);
-    }();
-    */
-
-    </script>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>NiseKana</title>
+  <meta content="NiseKana" name="descriptison">
+  <meta content="NiseKana" name="keywords">
+  <!-- Favicons -->
+  <link href="https://nisekana.github.io/img/logo/favicon.png" rel="icon">
+  <link href="https://nisekana.github.io/img/logo/favicon.png" rel="apple-touch-icon">
+  <!-- Vendor CSS Files -->
+  <link href="static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/css/icofont.min.css" rel="stylesheet">
+  <link href="static/css/owl.carousel.min.css" rel="stylesheet">
+  <link href="static/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/css/venobox.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+  <link href="static/css/wiki.css" rel="stylesheet">
+  <link href="https://at.alicdn.com/t/font_954744_g42joo6uzdr.css" rel="stylesheet">
+  <link href="https://at.alicdn.com/t/font_2334619_bg75usmacm.css" rel="stylesheet">
+<style type="text/css"></style>
 </head>
+
 <body>
-    <script src="source/js/sakura.js"></script>
-    <div class="container">
-        <!-- 头像 -->
-        <img src="https://nisekana.github.io/img/logo/Nisekana.png" alt="" class="avatar">
+  <!-- ======= Header ======= -->
+  <header id="header" class="header-tops" style="overflow-y:hidden;overflow-x: hidden;">
+    <div class="kratos-overlay"><div class="filter"></div><canvas id="canvas" width="1920" height="939"></canvas></div>
+    <div class="container" >
+   <!--<h1><a href="index.html">YY.wiki</a></h1> -->
+     <h1><a href="#header" class="mr-auto"><img src="https://nisekana.github.io/img/logo/Nisekana.png" alt="" class="img-fluid" style="height:100px" ></a></h1> 
+      <h2><div class="jz  ys" id="chakhsu"></div></h2>
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#header">首页</a></li>
+          <li><a target="_blank" href="https://nisekana.github.io/">博客</a></li>
+          <li><a target="_blank" href="https://nisekana.github.io/Music/">音乐</a></li>
+          <li><a href="#contact" onclick="disappear()">关于</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
 
-        <!-- 名字 -->
-        <h1 class="name">Nise Kana</h1>
-
-        <!-- 签名 -->
-        <p class="signature">小鹿包です、喜欢一切可爱的事物ヾ(≧▽≦*)o</p>
-
-        <!-- 一言 -->
-        <p class="hitokoto">加载中...</p>
-
-        <!-- 导航 -->
-        <div class="nav">
-            <a target="_blank" href="http://nisekana.github.io/" class="nav-item">博 客</a>
-            <a target="_blank" href="http://nisekana.github.io/Music" class="nav-item">音 乐</a>
-            <a target="_blank" href="mailto:nisekana2525@gmail.com" class="nav-item">邮 箱</a>
-            <a target="_blank" href="https://nisekana.github.io/about/" class="nav-item">关 于</a>
+      <div class="social-links">
+        <a href="https://github.com/nisekana" class="github"><i class="zm iconfont icon-GitHub"></i></a>
+        <a href="mailto:nisekana2525@gmail.com" class="mail"><i class="zm zm-youxiang"></i></a>
+        <a class="sns-wx"><i class="zm zm-weixin"></i><span style="background-image:url(https://nisekana.github.io/img/reward/wechat.jpg);"></span></a>
+      </div>
+      <!--  <hr class="panel-cover_divider"> -->
+        <div id="page-info" style="display:block">
+            <p id="bginfo" class="d-lg-block">小窝源码：<a href="https://nisekana.github.io/opensource.html" target="_blank">开源好耶</a>
+            <br>
+            小窝的主人：<a href="#" title="yy.wiki" target="_blank">NiseKana</a>
+            <br>
+              小窝存活时间： 
+            <a href="#"><span id="sitetime"></span></a>
+            </p>
         </div>
-    </div>    
-    <div class="footer">
-        <p class="copyright">
-            <script>
-                var mydate = new Date();
-                document.writeln("Copyright&nbsp;&copy;&nbsp;2023 - " + mydate.getFullYear() + '&nbsp;&nbsp;by&nbsp;NiseKana&nbsp;&nbsp;All&nbsp;Rights&nbsp;Reserved');</script>
-        </p>
-        <p class="run-time">
-            <span id="timeDate">载入天数...</span>
-            <span id="times">载入时分秒...</span>
-        </p>
     </div>
+  </header><!-- End Header -->
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact" style="overflow-y:hidden;overflow-x: hidden;">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>关于</h2>
+        <p>About</p>
+      </div>
+
+      <div class="row mt-2">
+
+        <div class="col-md-6 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="iconfont icon-wechat bx"></i>
+            <h3>XX号</h3>
+            <p>XXX</p> 
+          </div>
+        </div>
+
+        <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="iconfont icon-link bx"></i>
+            <h3>相关网址</h3>
+            <div class="social-links">
+              <a href="" target="_blank" >XXX</a>
+              <a href="" target="_blank" >XXX</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mt-4 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="iconfont icon-mail bx"></i>
+            <h3>邮箱联系</h3>
+            <p><a href="mailto:nisekana2525@gmail.com" target="_blank" >XXX@XXX</a></p>
+          </div>
+        </div>
+        <div class="col-md-6 mt-4 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="iconfont icon-QQ bx"></i>
+            <h3>企鹅群</h3>
+            <p><a href="" target="_blank" >XXXXXXXXX</a></p>
+          </div>
+        </div>
+      </div>
+
+      <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4" >
+     <font color=#fff>备注信息</font>
+      </form>
+
+    </div>
+  </section><!-- End Contact Section -->
+<!-- 
+底部，由于影响美观我就删除了，需要的话自己下一下
+如果有什么建议可以联系我 Q 24982360
+ -->
+  <!--<div class="credits">
+    Designed byCollect from <a href="#" title="NiseKana" target="_blank">NiseKana</a>
+  </div> -->
+  <!-- Vendor JS Files -->
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/bootstrap.bundle.min.js"></script>
+  <script src="static/js/jquery.easing.min.js"></script>
+  <script src="static/js/validate.js"></script>
+  <script src="static/js/jquery.waypoints.min.js"></script>
+  <script src="static/js/counterup.min.js"></script>
+  <script src="static/js/owl.carousel.min.js"></script>
+  <script src="static/js/isotope.pkgd.min.js"></script>
+  <script src="static/js/venobox.min.js"></script>
+  <script src="static/js/wikisj.js"></script>
+  <!-- Template Main JS File -->
+  <script src="static/js/main.js"></script>
+      <!-- XKtx  -->
+  <script src="static/js/xktx.js"></script>
+  <!-- 音乐播放器 -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <div class="aplayer" data-id="6657935526" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"
+        data-volume="0.35" ></div>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+  <script>
+        var chakhsu = function (r) {
+            function t() {
+                return b[Math.floor(Math.random() * b.length)]
+            }
+            function e() {
+                return String.fromCharCode(94 * Math.random() + 33)
+            }
+            function n(r) {
+                for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
+                    var l = document.createElement("span");
+                    l.textContent = e(), l.style.color = t(), n.appendChild(l)
+                }
+                return n
+            }
+            function i() {
+                var t = o[c.skillI];
+                c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
+            }
+            /*以下内容自定义修改*/
+            var l = ""
+                o = ["NiseKana","小鹿包です、","喜欢一切可爱的事物ヾ(≧▽≦*)o"].map(function (r) {
+                    return r + ""
+                }), a = 2, g = 1, s = 5, d = 75,
+                b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
+                c = {text: "", prefixP: -s, skillI: 0, skillP: 0, direction: "forward", delay: a, step: g};
+            i()
+        };
+        chakhsu(document.getElementById('chakhsu'));
+
+function disappear(){ 
+  if(document.getElementById("page-info").style.display=="block"){ 
+    document.getElementById("page-info").style.display="none"; 
+  }
+}
+		</script>
 </body>
+
 </html>
